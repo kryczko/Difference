@@ -34,8 +34,8 @@ for (int n = 0; n <= 199; n ++)
   H1_z[n] = z_data[3*n + 1] - z_data[3*n];
   H2_z[n] = z_data[3*n + 2] - z_data[3*n];
   
-  H1[n] = sqrt( H1_x[n]*H1_x[n] + H1_y[n]*H1_y[n] + H1_z[n]*H1_z[n]);
-  H2[n] = sqrt( H2_x[n]*H2_x[n] + H2_y[n]*H2_y[n] + H2_z[n]*H2_z[n]);
+  H1[n] =8* sqrt( H1_x[n]*H1_x[n] + H1_y[n]*H1_y[n] + H1_z[n]*H1_z[n]);
+  H2[n] =8* sqrt( H2_x[n]*H2_x[n] + H2_y[n]*H2_y[n] + H2_z[n]*H2_z[n]);
   
   difference << H1[n] << "\t" << H2[n] << endl;   	  
 
