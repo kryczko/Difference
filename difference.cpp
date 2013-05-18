@@ -27,7 +27,7 @@ datafile.open(infile.c_str());
 
 int i = 0;
 
-double x_data[3*timestep], y_data[3*timestep], z_data[3*timestep];
+double average1 = 0, average2 = 0, x_data[3*timestep], y_data[3*timestep], z_data[3*timestep];
 double H1_x[timestep], H2_x[timestep], H1_y[timestep], H2_y[timestep], H1_z[timestep], H2_z[timestep], H1[timestep], H2[timestep];
 
 while (!datafile.eof())
@@ -48,11 +48,14 @@ for (int n = 0; n <= timestep - 1; n ++)
   H1[n] =unit* sqrt( H1_x[n]*H1_x[n] + H1_y[n]*H1_y[n] + H1_z[n]*H1_z[n]);
   H2[n] =unit* sqrt( H2_x[n]*H2_x[n] + H2_y[n]*H2_y[n] + H2_z[n]*H2_z[n]);
   
+  average1 += H1[n];
+  average2 += H2[n];
+
   difference << H1[n] << "\t" << H2[n] << endl;   	  
 
 }
 
-
+cout << "Averages: " << average1/timestep << "\t" << average2/timestep << endl;
 
 difference.close();
 datafile.close();
